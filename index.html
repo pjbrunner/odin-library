@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Lato&display=swap" rel="stylesheet"> 
+    <title>Odin Library</title>
+</head>
+<header>
+    <h1>Odin Library</h1>
+    <button id="add-book">Add book</button>
+</header>
+<body>
+    <div id="modal">
+        <div id="modal-content">
+            <h2>Enter book information</h2>
+            <p>Author and title must only use alphanumeric characters.</p>
+            <form id="book-data" name="book-data" autocomplete="off">
+                <ul id="book-fields">
+                    <li>
+                        <label for="author">Author:</label>
+                        <input type="text" name="author" id="author" pattern="[a-zA-Z0-9]{1,60}" required>
+                    </li>
+                    <li>
+                        <label for="title">Title:</label>
+                        <input type="text" name="title" id="title" pattern="[a-zA-Z0-9]{1,60}" required>
+                    </li>
+                    <li>
+                        <label for="pages">Pages:</label>
+                        <input type="number" name=pages" id="pages" required>
+                    </li>
+                    <li>
+                        <label for="read">Have you read it?</label>
+                        <input type="checkbox" name="read" id="read">
+                    </li>
+                    <li>
+                        <!-- I put the type as button because submit would reload the
+                        page when I don't want it to such as when a negative
+                        number is given. This is because HTML can't check that
+                        for me, so even if the JavaScript catches it the page
+                        will get reloaded due to how HTML forms work. -->
+                        <button type="button" id="submit-modal">Submit</button>
+                    </li>
+                    <li>
+                        <button id="close-modal">Close</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+    <div id="library"></div> 
+</body>
+<script src="scripts/library.js"></script>
+</html>
