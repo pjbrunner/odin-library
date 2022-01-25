@@ -1,0 +1,143 @@
+html {
+    width: 100%;
+    background-color: rgba(234, 236, 241, 0.938);
+    font-family: 'Dongle', sans-serif;
+    font-family: 'Lato', sans-serif;
+}
+
+header {
+    margin: 15px;
+    background-color: rgb(43, 205, 226);
+    text-align: center;
+}
+
+#add-book {
+    border-radius: 0px;
+    border: black solid 2px;
+    margin-bottom: 5px;
+    padding: 10px 15px;
+    font-weight: bold;
+    background-color: rgb(219, 187, 80);
+}
+
+#add-book:hover {
+    color: white;
+    border-color: white;
+}
+
+#add-book:active {
+    background-color: rgb(164, 36, 175);
+}
+
+#modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+#modal-content {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid black;
+    width: 30%;
+    height: auto;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+#book-fields {
+    list-style: none;
+}
+
+#book-fields li {
+    margin: 30px 0;
+}
+
+#submit-modal {
+    border-radius: 0px;
+    border: black solid 2px;
+    background-color: rgb(235, 126, 107);
+}
+
+#submit-modal:hover {
+    /* background-color: rgb(180, 153, 65); */
+    color: white;
+    border-color: white;
+}
+
+#submit-modal:active {
+    background-color: rgb(111, 129, 233);
+}
+
+#close-modal {
+    border-radius: 0px;
+    border: black solid 2px;
+    background-color: rgb(111, 129, 233);
+}
+
+#close-modal:hover {
+    color: white;
+    border-color: white;
+}
+
+#close-modal:active {
+    background-color: rgb(235, 126, 107);
+}
+
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top: 0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top: 0; opacity:1}
+}
+
+#library {
+    border: black solid 3px;
+    margin: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.book {
+    background-color: aquamarine;
+    width: calc(25% - 30px);
+    height: auto;
+    margin: 15px;
+    padding: 40px 0px;
+    text-align: center;
+}
+
+.remove {
+    border-radius: 0px;
+    border: black solid 2px;
+    background-color: rgb(235, 126, 107);
+}
+
+.remove:hover {
+    /* background-color: rgb(180, 153, 65); */
+    color: white;
+    border-color: white;
+}
+
+.remove:active {
+    background-color: rgb(111, 129, 233);
+}
