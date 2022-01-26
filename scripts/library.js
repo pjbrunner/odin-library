@@ -1,4 +1,6 @@
 let myLibrary = [];
+// '\s' in the regex below translates to a space character.
+const STRING_REGEX = new RegExp(/[^.-\sa-zA-Z0-9]/g);
 
 function Book(author, title, pages, read, id) {
     this.author = author;
@@ -24,7 +26,10 @@ function addBookToLibrary(author, title, pages, read) {
         return;
     }
 
-    let newBook = new Book(author, title, pages, read, sessionStorage.length)
+    // Only valid strings and numbers should make it to this point but just
+    // in case I'm sanitizing them here.
+    let newBook = new Book(sanitizeString(author), sanitizeString(title), 
+                           sanitizeNumber(pages), read, sessionStorage.length);
     sessionStorage.setItem(sessionStorage.length, JSON.stringify(newBook));
     myLibrary.push(newBook);
     newBookDiv = createBookDiv(newBook);
@@ -36,11 +41,11 @@ function addBookToLibrary(author, title, pages, read) {
 function sanitizeString(str) {
     // Replace all non-alphanumeric characters with an empty string.
     // https://stackoverflow.com/questions/9311258/how-do-i-replace-special-characters-with-regex-in-javascript
-    return str.replace(/[^a-zA-Z0-9]/g, '');
+    return str.replace(STRING_REGEX, '');
 }
 
 function sanitizeNumber(str) {
-    return str.replace(/[^-.0-9]/g, '');
+    return str.replace(/[^0-9]/g, '');
 }
 
 function isEmpty(str) {
@@ -48,7 +53,7 @@ function isEmpty(str) {
 }
 
 function isValidString(str) {
-    if (isEmpty(str) || str.search(/[^a-zA-Z0-9]/g) !== -1) {
+    if (isEmpty(str) || str.search(STRING_REGEX) !== -1) {
         return false;
     }
     return true;
